@@ -145,3 +145,9 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME' : timedelta(days=7),
     'REFRESH_TOKEN_LIFETIME' : timedelta(days=7),
 }
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'expense-tracker-backend-iqtm.onrender.com', 
+]
