@@ -30,3 +30,23 @@ A simple Expense Tracker API built with Django, Django REST Framework (DRF), and
 ```bash
 git clone https://github.com/Eswarsaipetakamsetty/expense-tracker-backend.git
 cd expense-tracker-backend
+
+python -m venv venv
+source venv/bin/activate      # macOS/Linux
+venv\Scripts\activate         # Windows
+
+pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+
+```
+| Method | Endpoint                                                   | Description                      |
+| ------ | ---------------------------------------------------------- | -------------------------------- |
+| POST   | `/api/signup/`                                             | Register a new user              |
+| POST   | `/api/login/`                                              | Login and get JWT token          |
+| GET    | `/api/expenses/`                                           | List all user expenses           |
+| POST   | `/api/expenses/`                                           | Add a new expense                |
+| GET    | `/api/expenses/?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD` | Filter expenses by date          |
+| GET    | `/api/expenses/analytics/`                                 | Get total, category-wise, trends |
+
