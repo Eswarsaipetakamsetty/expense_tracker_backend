@@ -31,11 +31,21 @@ A simple Expense Tracker API built with Django, Django REST Framework (DRF), and
 git clone https://github.com/Eswarsaipetakamsetty/expense-tracker-backend.git
 cd expense-tracker-backend
 
+```
+### 2. Create virtual env(optional)
+```bash
 python -m venv venv
 source venv/bin/activate      # macOS/Linux
 venv\Scripts\activate         # Windows
+```
 
+### 3. Install requirements.txt
+```bash
 pip install -r requirements.txt
+```
+
+### 4. Run the server
+```bash
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
