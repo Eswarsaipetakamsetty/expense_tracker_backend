@@ -25,6 +25,13 @@ A simple Expense Tracker API built with Django, Django REST Framework (DRF), and
 
 ## 🚀 Getting Started
 
+## Deployed link
+
+Here is the deployed link, and can directly access the api from here
+https://expense-tracker-backend-iqtm.onrender.com
+
+## Self Host
+
 ### 1. Clone the repository
 
 ```bash
@@ -44,13 +51,56 @@ venv\Scripts\activate         # Windows
 pip install -r requirements.txt
 ```
 
-### 4. Run the server
+### 4. Configure the database
+To configure JWT lifetime or switch DB to PostgreSQL, edit your settings.py.
+Example for PostgreSQL:
+
+```bash
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'expense_db',
+        'USER': 'postgres',
+        'PASSWORD': 'yourpassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+
+### 5. Run the server
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 
 ```
+POST /api/signup/
+
+Request Body
+```bash
+{
+  "email": "user@example.com",
+  "username": "user123",
+  "password": "yourpassword"
+}
+```
+POST /api/login/
+
+Request Body
+```bash
+{
+  "email": "user@example.com",
+  "password": "yourpassword"
+}
+```
+
+All /expenses/ endpoints require JWT Authorization header:
+```bash
+Authorization: Bearer <access_token>
+```
+
+
 | Method | Endpoint                                                   | Description                      |
 | ------ | ---------------------------------------------------------- | -------------------------------- |
 | POST   | `/api/signup/`                                             | Register a new user              |
@@ -59,4 +109,3 @@ python manage.py runserver
 | POST   | `/api/expenses/`                                           | Add a new expense                |
 | GET    | `/api/expenses/?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD` | Filter expenses by date          |
 | GET    | `/api/expenses/analytics/`                                 | Get total, category-wise, trends |
-
