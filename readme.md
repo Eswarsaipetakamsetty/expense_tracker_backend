@@ -100,6 +100,19 @@ All /expenses/ endpoints require JWT Authorization header:
 Authorization: Bearer <access_token>
 ```
 
+POST /api/expenses/
+
+Request Body
+```bash
+{
+    "amount": 2000,
+    "category": "Travel",
+    "date": "2025-06-07",
+    "note": ""
+}
+```
+Categories are : "Travel", "Food", "Utilities", "Other"
+
 
 | Method | Endpoint                                                   | Description                      |
 | ------ | ---------------------------------------------------------- | -------------------------------- |
